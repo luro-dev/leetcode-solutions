@@ -1,11 +1,11 @@
-# Last updated: 2/24/2026, 12:42:49 PM
+# Last updated: 2/24/2026, 12:44:19 PM
 1"""
 2Understand:
 3- Given an array paths, where each index of path contains two cities with paths between them.
 4- Return the only city with no outgoing path
 5
 6Plan 
-7- From what I see I just count cities and the city with a frequency of 1 is the end city
+7- From what I see I just store all cities with an outgoing path and then loop through the paths again and look for the only city not in the set of cities with outgoing paths
 8
 9"""
 10class Solution:
