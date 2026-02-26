@@ -1,4 +1,4 @@
-# Last updated: 2/26/2026, 11:00:06 AM
+# Last updated: 2/26/2026, 11:00:54 AM
 1"""
 2UNDERSTAND
 3- Given an array of positive integers nums, erase a subarray containing unique elements
@@ -7,28 +7,29 @@
 6
 7PLAN 
 8- We can use a hashmap to keep track of the number of unique elements
-9- Sliding window with a hashmap and prefix sums since we will be calculating the sum of valid windows
-10"""
-11from collections import defaultdict
-12class Solution:
-13    def maximumUniqueSubarray(self, nums: List[int]) -> int:
-14        count = defaultdict(int)
-15        total = 0
-16        res = 0
-17        l = 0
-18
-19        for r in range(len(nums)):
-20            total += nums[r]
-21            count[nums[r]] += 1
-22
-23            while count[nums[r]] > 1:
-24                count[nums[l]] -= 1
-25                total -= nums[l]
-26                l += 1
-27            
-28            res = max(res, total)
-29
-30        return res
-31
+9- Sliding window with a hashmap and running sum since we will be calculating the sum of valid windows
+10- When constraint is broken move left foward removing until valid again
+11"""
+12from collections import defaultdict
+13class Solution:
+14    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+15        count = defaultdict(int)
+16        total = 0
+17        res = 0
+18        l = 0
+19
+20        for r in range(len(nums)):
+21            total += nums[r]
+22            count[nums[r]] += 1
+23
+24            while count[nums[r]] > 1:
+25                count[nums[l]] -= 1
+26                total -= nums[l]
+27                l += 1
+28            
+29            res = max(res, total)
+30
+31        return res
 32
 33
+34
