@@ -1,4 +1,4 @@
-# Last updated: 3/3/2026, 11:28:36 AM
+# Last updated: 3/3/2026, 11:30:06 AM
 1from collections import Counter
 2class Solution:
 3    def closeStrings(self, word1: str, word2: str) -> bool:
