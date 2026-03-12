@@ -1,4 +1,4 @@
-# Last updated: 3/12/2026, 11:35:25 AM
+# Last updated: 3/12/2026, 11:38:06 AM
 1# Definition for singly-linked list.
 2# class ListNode:
 3#     def __init__(self, val=0, next=None):
@@ -14,9 +14,9 @@
 13        for i in range(1, k):
 14            first = first.next
 15
-16        current = first
+16        current = first.next
 17
-18        while current.next:
+18        while current:
 19            current = current.next
 20            second = second.next
 21
