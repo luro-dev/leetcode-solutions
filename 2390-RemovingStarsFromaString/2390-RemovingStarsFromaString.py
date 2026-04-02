@@ -1,4 +1,4 @@
-# Last updated: 4/2/2026, 1:36:33 PM
+# Last updated: 4/2/2026, 1:39:37 PM
 1"""
 2- Given a string s, which contains letters and *'s, we can choose a star in s, and remove the closest non-star char to the left as well as itself
 3- We want to remove the string after all stars have been removed
