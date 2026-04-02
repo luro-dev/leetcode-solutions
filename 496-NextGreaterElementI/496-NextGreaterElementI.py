@@ -1,17 +1,26 @@
-# Last updated: 4/2/2026, 9:46:55 AM
-1class Solution:
-2    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-3        nums1_idx = { n:i for i, n in enumerate(nums1) }
-4        res = [-1] * len(nums1)
-5        stack = []
-6
-7        for i in range(len(nums2)):
-8            curr_num = nums2[i]
-9            if curr_num in nums1_idx:
-10                for j in range(i+1, len(nums2)):
-11                    if nums2[j] > curr_num:
-12                        idx = nums1_idx[curr_num]
-13                        res[idx] = nums2[j]
-14                        break
-15                 
-16        return res
+# Last updated: 4/2/2026, 11:21:09 AM
+1"""
+2- Maintain a monotonic decreasing stack, once we find the next greater element for the current one, any other elements we see that are not greater than the current one get added to the stack, once we find a greater we can pop all elements from the stack and set the current largest as the greater of all of those
+3"""
+4class Solution:
+5    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+6        n1_idx = {n : i for i, n in enumerate(nums1) }
+7        res = [-1] * len(nums1)
+8        stack = []
+9
+10        for i in range(len(nums2)):
+11            curr = nums2[i]
+12            
+13            while stack and curr > stack[-1]:
+14                val = stack.pop()
+15                if val in n1_idx:
+16                    idx = n1_idx[val]
+17                    res[idx] = curr
+18            
+19            stack.append(curr)
+20        return res
+21
+22
+23            
+24
+25                
