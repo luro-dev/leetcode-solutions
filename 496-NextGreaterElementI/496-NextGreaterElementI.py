@@ -1,4 +1,4 @@
-# Last updated: 4/2/2026, 11:21:09 AM
+# Last updated: 4/2/2026, 11:22:53 AM
 1"""
 2- Maintain a monotonic decreasing stack, once we find the next greater element for the current one, any other elements we see that are not greater than the current one get added to the stack, once we find a greater we can pop all elements from the stack and set the current largest as the greater of all of those
 3"""
@@ -13,14 +13,13 @@
 12            
 13            while stack and curr > stack[-1]:
 14                val = stack.pop()
-15                if val in n1_idx:
-16                    idx = n1_idx[val]
-17                    res[idx] = curr
-18            
-19            stack.append(curr)
-20        return res
+15                idx = n1_idx[val]
+16                res[idx] = curr
+17            if curr in n1_idx:
+18                stack.append(curr)
+19        return res
+20
 21
-22
-23            
-24
-25                
+22            
+23
+24                
