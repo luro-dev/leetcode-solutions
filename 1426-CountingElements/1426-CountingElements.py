@@ -1,11 +1,14 @@
-# Last updated: 2/12/2026, 8:01:59 PM
-1class Solution:
-2    def countElements(self, arr: List[int]) -> int:
-3        res = 0
-4        ele = set(arr)
-5
-6        for num in arr:
-7            if (num + 1) in ele:
-8                res += 1
-9
-10        return res
+# Last updated: 7/14/2026, 5:49:26 PM
+1from collections import Counter
+2class Solution:
+3    def countElements(self, arr: List[int]) -> int:
+4        ele_count = set(arr)
+5        valid_count = 0
+6        
+7        for ele in arr:
+8            if ele + 1 in ele_count:
+9                valid_count += 1
+10        
+11        return valid_count
+12        
+13        
